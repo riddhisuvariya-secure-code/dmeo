@@ -1,0 +1,10 @@
+{
+  "products": [
+    {"id": 1, "name": "Laptop", "price": 999.99},
+    {"id": 2, "name": "Mouse", "price": 25.50}
+  ],
+  "metadata": {
+    "count": 2,
+    "currency": "USD"
+  }
+}
