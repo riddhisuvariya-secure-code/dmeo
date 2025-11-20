@@ -1,43 +1,13 @@
-version: "1.0"
-metadata:
-  name: zyloch-backend
-  description: Backend service configuration
-  environment: production
-  owners:
-    - platform@zyloch.example.com
-    - security@zyloch.example.com
+user:
+  id: 101
+  name: Alice
+  roles:
+    - admin
+    - editor
+  active: true
 
-services:
-  api:
-    image: ghcr.io/zyloch/backend:1.4.2
-    replicas: 2
-    ports:
-      - name: http
-        containerPort: 8080
-        protocol: TCP
-    env:
-      NODE_ENV: production
-      LOG_LEVEL: info
-    resources:
-      requests:
-        memory: "512Mi"
-        cpu: "500m"
-      limits:
-        memory: "1Gi"
-        cpu: "1000m"
-
-  database:
-    image: postgres:15-alpine
-    replicas: 1
-    ports:
-      - name: postgres
-        containerPort: 5432
-
-networking:
-  ingress:
-    enabled: true
-    host: api.zyloch.example.com
-    tls:
-      enabled: true
-      certManager: true
-
+settings:
+  theme: dark
+  notifications:
+    email: true
+    sms: false
