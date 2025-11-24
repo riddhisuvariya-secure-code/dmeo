@@ -1,15 +1,86 @@
 {
-  "user": {
-    "id": 101,
-    "name": "Alice",
-    "roles": ["admin", "editor"],
-    "active": true
+  "application": {
+    "name": "ExampleApp",
+    "version": "3.4.1",
+    "environment": "production"
   },
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "roles": ["admin", "editor", "devops"],
+      "active": true,
+      "profile": {
+        "age": 30,
+        "bio": "Loves coding and coffee",
+        "links": [
+          "https://example.com/alice",
+          "https://github.com/alice"
+        ],
+        "skills": {
+          "programming": {
+            "python": "advanced",
+            "javascript": "expert"
+          },
+          "soft": {
+            "communication": "excellent",
+            "management": "intermediate"
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Robert Miles",
+      "email": "bob@example.com",
+      "roles": ["viewer", "analyst"],
+      "active": true,
+      "profile": {
+        "age": 28,
+        "bio": "Enjoys reading & music",
+        "links": [
+          "https://example.com/bob",
+          "https://youtube.com/bobchannel"
+        ],
+        "skills": {
+          "programming": {
+            "sql": "advanced",
+            "python": "intermediate"
+          },
+          "soft": {
+            "teamwork": "strong",
+            "writing": "good"
+          }
+        }
+      }
+    }
+  ],
   "settings": {
     "theme": "dark",
+    "language": "en-US",
     "notifications": {
       "email": true,
-      "sms": false
+      "sms": false,
+      "push": false
+    },
+    "limits": {
+      "users_max": 10000,
+      "session_timeout": 120,
+      "rate_limit": {
+        "enabled": true,
+        "window_seconds": 60,
+        "max_requests": 200
+      }
+    }
+  },
+  "metadata": {
+    "generated": "2025-02-14T12:00:00Z",
+    "checksum": "F2A98DAB239F9FEE",
+    "signature": {
+      "valid": true,
+      "hash": "abcd1234ff998877665522",
+      "algorithm": "SHA256"
     }
   }
 }
