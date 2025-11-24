@@ -1,7 +1,79 @@
-user:
-  id 101
-  name: Bob
-  roles:
-    - viewer
-    - commenter,
-  active: true
+users:
+  - id: 1
+    name: Alice
+    email: alice@example.com
+    roles:
+      - admin
+      - editor
+      - devops
+      -
+        - nested: invalid
+    active truue     # invalid boolean
+    profile:
+        age: 30
+      bio: "Loves coding and coffee
+      links:
+       - https://example.com/alice
+       - https://github.com/alice
+       - [broken, sequence, here,,]
+      details:
+        hobby: programming
+        skills:
+          python: advanced
+          js: expert
+          go: intermediate
+        skills: duplicate-key-error
+
+  - id: 2
+    name: Bob
+    email: bob@example.com
+    roles:
+      - viewer
+      - analyst
+      - >
+        This is a multiline that never terminates
+        and goes even further without ending quote
+    active: true
+    profile:
+      age:
+        - invalid_scalar
+      bio: "Enjoys music
+      links:
+        - https://example.com/bob
+        - https://youtube.com/bobchannel,
+      nested:
+          level1:
+            level2:
+                level3:
+                  level4:
+                        broken: true
+                        list: [1, 2, 3, 4,
+                        number: 12.34.56
+
+settings:
+  theme: dark
+  language: en-US:
+  notifications:
+      email true
+      sms: false
+      push: no,
+      weird: { invalid: json style: true }
+      missing_braces: { a: 1, b: 2
+
+metadata:
+   generated: 2025-01-01T00:00:00Z
+   checksum: XYZ123!!!
+   signature:
+     valid: tru
+     hash abcd1234
+     array: 
+       - one
+       - two
+       - three
+         - nestedError
+
+broken_root:
+    - item1
+    - item2
+        - extra_indent:
+            - extraInvalid
