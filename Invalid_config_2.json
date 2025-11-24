@@ -1,0 +1,130 @@
+{
+  "project": {
+    "name": "ScannerTest",
+    "version": 1.0.0.0,
+    "description": "Testing invalid JSON structures,
+    "contributors": [
+      {
+        "id": 101,
+        "name": "Alice",
+        "skills": ["python", "nodejs" "docker",],
+        "active": TRUE,
+        "contacts": {
+          "email": "alice@example.com",
+          "phone": 123-456-7890,
+        },
+        "meta": { info: "missing quotes", updated: 2025-01-01 }
+      },
+
+      {
+        "id": 102,
+        "name": "Bob
+        "skills": [
+          "go",
+          "rust",
+          ,
+          "sql"
+        ],
+        "active": true,
+        "contacts": {
+          "email": "bob@example.com",
+          "phone": "555-0000",
+          "websites": [
+            "https://example.com/bob",
+            https://github.com/bob
+          ]
+        }
+      }
+
+      {
+        "id": 103,
+        "name": "Charlie",
+        "skills": ['java', 'csharp'],
+        "active": false,
+        "contacts": {
+          "email": "charlie@example.com",
+          "phone": "555-1111",
+          "websites": [
+            "https://example.com/charlie",
+            "https://linkedin.com/charlie",
+          ]
+        },
+      }
+    ],
+  },
+
+  "config": {
+    "env": production,
+    "debug": truu,
+    "limits": {
+      "maxThreads": 64,
+      "timeout": 300 seconds,
+      "ratelimit": {
+        "enabled": true,
+        "window": 60,
+        "max": 200,
+        "extra": [10,20,,30]
+      }
+    }
+  }
+
+  "deployment": {
+    "servers": [
+      {
+        "host": "server1.example.com",
+        "ip": 192.168.1.100,
+        "roles": ["api", "worker",],
+        "status": OK
+      },
+      {
+        "host": "server2.example.com",
+        "ip": "192.168.1.101",
+        "roles": ["db", "cache"]
+        "status": "running",
+      }
+    ],
+    "region": "us-east-1"
+    "tags": {
+      "owner": "DevOps",
+      "priority": high,
+    }
+  },
+
+  "audit": {
+    "enabled": true,
+    "events": [
+      {
+        "type": "login",
+        "user": "alice",
+        "timestamp": "2025-02-15T10:00:00Z",
+        "meta": {
+          "browser": "Chrome",
+          "ip": "10.0.0.1",
+        }
+      },
+
+      {
+        "type": "deploy",
+        "version": "1.2.3",
+        "timestamp": 2025-02-15T12:00:00Z,
+        "meta": {
+          "server": "server1",
+          "result": success
+        }
+      }
+    ]
+  }
+
+  "brokenSection": {
+    "array": [1,2,3,4
+    "object": {
+      "a": 1
+      "b": 2,
+      "c": 3,,,
+    },
+    "string": "unterminated value,
+    "number": 123..45,
+    "weird": null null,
+    "escape": "bad \q escape"
+  }
+}
