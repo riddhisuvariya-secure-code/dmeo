@@ -1,0 +1,102 @@
+{
+  "project": {
+    "name": "CleanExampleProject",
+    "version": "1.0.0",
+    "description": "A valid JSON example for demonstration purposes."
+  },
+
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "email": "alice@example.com",
+      "active": true,
+      "roles": ["admin", "editor"],
+      "profile": {
+        "age": 30,
+        "bio": "Loves coding and coffee",
+        "links": [
+          "https://example.com/alice",
+          "https://github.com/alice"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "email": "bob@example.com",
+      "active": true,
+      "roles": ["viewer", "analyst"],
+      "profile": {
+        "age": 27,
+        "bio": "Enjoys music and technology",
+        "links": [
+          "https://example.com/bob",
+          "https://youtube.com/bob"
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "environment": "production",
+    "debug": false,
+    "limits": {
+      "maxThreads": 64,
+      "timeoutSeconds": 300,
+      "rateLimit": {
+        "enabled": true,
+        "window": 60,
+        "maxRequests": 200
+      }
+    }
+  },
+
+  "deployment": {
+    "region": "us-east-1",
+    "servers": [
+      {
+        "host": "server1.example.com",
+        "ip": "192.168.1.100",
+        "roles": ["api", "worker"],
+        "status": "running"
+      },
+      {
+        "host": "server2.example.com",
+        "ip": "192.168.1.101",
+        "roles": ["database", "cache"],
+        "status": "running"
+      }
+    ],
+    "tags": {
+      "owner": "DevOps",
+      "priority": "high"
+    }
+  },
+
+  "audit": {
+    "enabled": true,
+    "events": [
+      {
+        "type": "login",
+        "user": "alice",
+        "timestamp": "2025-02-15T10:00:00Z"
+      },
+      {
+        "type": "deploy",
+        "version": "1.2.3",
+        "timestamp": "2025-02-15T12:00:00Z",
+        "result": "success"
+      }
+    ]
+  },
+
+  "metadata": {
+    "generated": "2025-02-14T12:00:00Z",
+    "checksum": "XYZ123ABC",
+    "signature": {
+      "valid": true,
+      "hash": "abcd1234efgh5678"
+    }
+  }
+}
