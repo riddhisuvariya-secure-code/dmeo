@@ -1,0 +1,24 @@
+project:
+  name: CleanExampleProject
+  version: "1.0.0
+  description: A valid YAML example with intentional issues
+
+users:
+  - id: 1
+    name: Alice
+    email: alice@example.com
+    active true
+    roles:
+      - admin
+      - editor
+
+  - id: 2
+    name: Bob
+    email: bob@example.com
+    active: yes
+    profile:
+      age: 27
+      bio: "Enjoys music and technology
+      links:
+        - https://example.com/bob
+        - https://youtube.com/bob"
