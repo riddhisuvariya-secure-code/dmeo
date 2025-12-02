@@ -1,113 +1,102 @@
 {
+  "project": {
+    "name": "CleanExampleProject",
+    "version": "1.0.0",
+    "description": "A valid JSON example for demonstration purposes."
+  },
+
   "users": [
     {
       "id": 1,
       "name": "Alice",
       "email": "alice@example.com",
-      "roles": ["admin", "editor", ],
-      "active": truue,
+      "active": true,
+      "roles": ["admin", "editor"],
       "profile": {
         "age": 30,
-        "bio": "Loves coding and coffee\",
+        "bio": "Loves coding and coffee",
         "links": [
           "https://example.com/alice",
           "https://github.com/alice"
-        ,,]
+        ]
+      }
     },
-
     {
       "id": 2,
       "name": "Bob",
       "email": "bob@example.com",
-      "roles": [
-        "viewer",
-        "commenter"
-        "analyst"
-      ],
-      "active": true
+      "active": true,
+      "roles": ["viewer", "analyst"],
       "profile": {
-        "age": ,
-        "bio": "Enjoys reading and music",
+        "age": 27,
+        "bio": "Enjoys music and technology",
         "links": [
           "https://example.com/bob",
-          "https://youtube.com/bobchannel",
+          "https://youtube.com/bob"
         ]
       }
     }
-
-    {
-      "id": 3,
-      "name": "Charlie",
-      "email": "charlie@example.com",
-      "roles": ['tester', 'qa'],
-      "active": FALSE,
-      "profile": {
-        "age": 28
-        "bio": "QA Specialist",
-        "links": [
-          "https://example.com/charlie"
-        ]
-      },
-    },
   ],
 
-  "settings": {
-    theme: "dark",
-    "language": "en-US"
-    "notifications": {
-      "email": true,
-      "sms": false,
-      "push": false trailing,
-    },
+  "config": {
+    "environment": "production",
+    "debug": false,
     "limits": {
-      "maxUsers": 1000,
-      "timeout": 30,
-      "threshold": 0.75.3
-    },
-    "features":: {
-      "beta": true,
-      "experimental": [true, false false, true],
+      "maxThreads": 64,
+      "timeoutSeconds": 300,
+      "rateLimit": {
+        "enabled": true,
+        "window": 60,
+        "maxRequests": 200
+      }
     }
-  }
+  },
 
+  "deployment": {
+    "region": "us-east-1",
+    "servers": [
+      {
+        "host": "server1.example.com",
+        "ip": "192.168.1.100",
+        "roles": ["api", "worker"],
+        "status": "running"
+      },
+      {
+        "host": "server2.example.com",
+        "ip": "192.168.1.101",
+        "roles": ["database", "cache"],
+        "status": "running"
+      }
+    ],
+    "tags": {
+      "owner": "DevOps",
+      "priority": "high"
+    }
+  },
+
+  "audit": {
+    "enabled": true,
+    "events": [
+      {
+        "type": "login",
+        "user": "alice",
+        "timestamp": "2025-02-15T10:00:00Z"
+      },
+      {
+        "type": "deploy",
+        "version": "1.2.3",
+        "timestamp": "2025-02-15T12:00:00Z",
+        "result": "success"
+      }
+    ]
+  },
 
   "metadata": {
     "generated": "2025-02-14T12:00:00Z",
-    "checksum": "XYZ123!!!",
+    "checksum": "XYZ123ABC",
     "signature": {
-      "valid": tru,
-      "hash": "abcd1234
-    }
-  },
-
-  "junkSection": {
-    "random1": [1,2,3,4,5,
-    "random2": { "a":1, "b":2,, "c":3 },
-    "random3": "text without ending,
-    "random4": null null
-  },
-
-  "deeplyNestedBroken": {
-    "level1": {
-      "level2": {
-        "level3": {
-          "level4": {
-            "value1": "ok",
-            "value2": [1,2,,
-            "value3": {
-              "inner": {
-                "broken": true,
-                "missingBracket": [
-                  10, 20, 30
-                ,
-              }
-              "after": "this shouldn't parse"
-            }
-          }
-        }
-      }
+      "valid": true,
+      "hash": "abcd1234efgh5678"
     }
   }
-
-
 }
