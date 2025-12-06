@@ -18,7 +18,7 @@ users:
     active: yes
     profile:
       age: 27
-      bio: "Enjoys music and technology
+      bio: "Enjoys music and technologies
       links:
         - https://example.com/bob
         - https://youtube.com/bob"
