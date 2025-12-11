@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: invalid-pod
+  labels:
+    app: MyApp
+spec:
+ # The 'containers' key should be a list, but it is indented incorrectly.
+ containers:
+   - name: nginx-container
+     image: nginx:1.14.2
+     ports:
+       - containerPort: 80
+ # A common error: using tabs instead of spaces for indentation, which is invalid in YAML.
+	volumeMounts:
+	- name: my-volume
+	  mountPath: "/tmp/volume"
