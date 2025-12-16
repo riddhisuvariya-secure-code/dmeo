@@ -1,24 +1,24 @@
 project:
-  name: CleanExampleProject
-  version: "1.0.0
-  description: A valid YAML example with intentional issues
+  name: BrokenSampleProject
+  version: "2.1.0
+  description: Project file with multiple yaml issues
 
 users:
-  - id: 1
-    name: Alice
-    email: alice@example.com
+  - id: 101
+    name: Charlie
+    email: charlie@example.com
     active true
     roles:
       - admin
-      - editor
+      - viewer
 
-  - id: 2
-    name: Bob
-    email: bob@example.com
-    active: yes
+  - id: 102
+    name: Diana
+    email diana@example.com
+    active: false
     profile:
-      age: 27
-      bio: "Enjoys music and technologies
+      age: 30
+      bio: "Loves design and coding
       links:
-        - https://example.com/bob
-        - https://youtube.com/bob"
+        - https://example.com/diana
+        - https://twitter.com/diana
