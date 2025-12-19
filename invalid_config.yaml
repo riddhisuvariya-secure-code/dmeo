@@ -1,5 +1,3 @@
 server:
   host: localhost
-  ports:
-    - 8080
-   - 9090   # ❌ wrong indentation (one space less)
+   port: 8080
