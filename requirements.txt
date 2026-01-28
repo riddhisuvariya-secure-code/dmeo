@@ -1,0 +1,9 @@
+pymongo==4.15.0
+
+fastapi==0.104.1
+aiohttp-apischema==0.0.1
+balena==0.1.1
+Djalog==0.9.2
+gitpython==3.1.40
+
+
