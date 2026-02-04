@@ -6,11 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>sbom-test-app</artifactId>
+    <artifactId>sbom-maven-test</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>sbom-test-app</name>
+    <name>sbom-maven-test</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -18,19 +18,22 @@
     </properties>
 
     <dependencies>
-        <!-- runtime dependency -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.14.0</version>
+            <groupId>ae.teletronics.nlp</groupId>
+            <artifactId>entityextraction</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
-        <!-- test dependency -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
+            <groupId>africa.absa</groupId>
+            <artifactId>inception-reference</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>africa.shuwari.sbt</groupId>
+            <artifactId>sbt-vite</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
