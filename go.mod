@@ -1,13 +1,17 @@
-module github.com/example/sbom-go-test
+module github.com/example/sbom-go-service
 
-go 1.22
+go 1.20
 
 require (
-    github.com/sirupsen/logrus v1.9.3
-    aahframework.org/aah.v0 v0.12.3
-    github.com/gin-gonic/gin v1.9.1
-    github.com/google/uuid v1.5.0
+    github.com/labstack/echo/v4 v4.11.1
+    github.com/spf13/viper v1.17.0
+    github.com/jmoiron/sqlx v1.3.5
+    github.com/lib/pq v1.10.9
+    golang.org/x/crypto v0.21.0
 )
 
-replace github.com/sirupsen/logrus => github.com/sirupsen/logrus v1.9.3
+require (
+    github.com/stretchr/testify v1.8.4 // indirect
+)
 
+replace github.com/lib/pq => github.com/lib/pq v1.10.9
