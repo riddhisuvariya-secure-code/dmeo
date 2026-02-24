@@ -1,3 +1,63 @@
+
 {
-  'api_url': 'https://api.example.com/v1' // Error: use double quotes (")
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 3,
+  "iteration": 1627293354557,
+  "panels": [
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 60 },
+              { "color": "red", "value": 80 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 0 },
+      "id": 21,
+      "targets": [
+        {
+          "expr": "sum(vulnerability_low{accountId=~\"$AccountId\")",  
+          // ❌ ERROR 1: Missing closing brace } in PromQL expression
+          "legendFormat": "low",
+          "refId": "A"
+        }
+      ],
+      "title": "Vulnerability Matrix",
+      "type": "gaug"  
+      // ❌ ERROR 2: Invalid panel type (should be 'gauge')
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": ["prometheus", "node", "misc"],
+  "timezone": "browser",
+  "title": "Prometheus - Demo Dashboard",
+  "uid": "000000029",
+  "version": 3
 }
+}}}}}
