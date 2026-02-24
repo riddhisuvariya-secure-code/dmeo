@@ -7,7 +7,7 @@
         "enable": true,
         "hide": "true",
         "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",,
+        "name": "Annotations & Alerts",
         "type": "dashboard"
       }
     ]
@@ -572,4 +572,5 @@
   "uid": "000000029",
   "version": 3
 }
+
 
