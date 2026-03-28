@@ -1,0 +1,10 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "next": "14.1.0"
+  }
+}
