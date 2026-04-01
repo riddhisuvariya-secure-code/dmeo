@@ -35,6 +35,11 @@
             <artifactId>sbt-vite</artifactId>
             <version>0.12.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-jakarta-service-extensions</artifactId>
+            <version>2.31.2</version>
+    </dependency>
     </dependencies>
 
 </project>
