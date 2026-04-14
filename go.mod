@@ -9,8 +9,6 @@ require (
     github.com/lib/pq v1.10.9
     golang.org/x/crypto v0.21.0
 
-    github.com/alicloud/pailangstudio20240710 v0.0.0
-    github.com/alicloud/ros-cdk-nas v0.0.0
 )
 
 require (
