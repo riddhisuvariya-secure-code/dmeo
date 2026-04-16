@@ -24,3 +24,4 @@ anthropic==0.52.0
 google-genai
 xai-sdk
 strawberry-graphql[fastapi]==0.219.2
+python>=3.11
