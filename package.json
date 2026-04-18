@@ -10,7 +10,8 @@
     "react": "18.2.0",
     "@alifd/theme-23000": "latest",
     "@alifd/theme-23004": "latest",
-    "rayleigh-inertia": "1.0.0"
+    "rayleigh-inertia": "1.0.0",
+    "hsad": "1.0.0"
   },
   "devDependencies": {
     "typescript": "5.3.0",
