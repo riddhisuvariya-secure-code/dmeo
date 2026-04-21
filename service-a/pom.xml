@@ -10,4 +10,11 @@
   <properties>
     <java.version>17</java.version>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.grails</groupId>
+      <artifactId>grails-sitemesh3</artifactId>
+      <version>3.0.0</version> <!-- use latest available if needed -->
+    </dependency>
+  </dependencies>
 </project>
