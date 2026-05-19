@@ -5,19 +5,27 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.example</groupId>
-        <artifactId>parent-project</artifactId>
-        <version>1.0.0</version>
-    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>property-demo</artifactId>
+    <version>1.0.0</version>
 
-    <artifactId>service-a</artifactId>
+    <properties>
+        <junit.version>5.10.2</junit.version>
+        <slf4j.version>2.0.13</slf4j.version>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>33.0.0-jre</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 
