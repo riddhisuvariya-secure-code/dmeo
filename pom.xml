@@ -6,19 +6,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>plugin-demo</artifactId>
+    <artifactId>profile-demo</artifactId>
     <version>1.0.0</version>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.11.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+    <profiles>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <environment>development</environment>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <environment>production</environment>
+            </properties>
+        </profile>
+
+    </profiles>
 
 </project>
