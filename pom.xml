@@ -1,428 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- ===================================================== -->
-    <!-- 1. SPRING BOOT PROJECT                                -->
-    <!-- ===================================================== -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
-        <relativePath/>
-    </parent>
-
     <groupId>com.example</groupId>
-    <artifactId>my-spring-app</artifactId>
+    <artifactId>sbom-maven-test</artifactId>
     <version>1.0.0</version>
-    <packaging>pom</packaging>
-    <name>My Spring Boot App</name>
-    <description>Spring Boot multi-module demo project</description>
+    <packaging>jar</packaging>
 
-    <!-- ===================================================== -->
-    <!-- 2. MULTI-MODULE PARENT POM                           -->
-    <!-- ===================================================== -->
-    <modules>
-        <module>my-spring-app-core</module>
-        <module>my-spring-app-web</module>
-        <module>my-spring-app-service</module>
-        <module>my-spring-app-repository</module>
-    </modules>
+    <name>sbom-maven-test</name>
 
-    <!-- ===================================================== -->
-    <!-- PROPERTIES (version variables used across modules)   -->
-    <!-- ===================================================== -->
     <properties>
-        <java.version>17</java.version>
+
+        <!-- Java -->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- Encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Dependency versions -->
-        <lombok.version>1.18.30</lombok.version>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
-        <guava.version>33.0.0-jre</guava.version>
-        <jackson.version>2.17.0</jackson.version>
-        <logback.version>1.4.14</logback.version>
-        <slf4j.version>2.0.12</slf4j.version>
-        <h2.version>2.2.224</h2.version>
-        <postgresql.version>42.7.3</postgresql.version>
-        <flyway.version>10.10.0</flyway.version>
-        <caffeine.version>3.1.8</caffeine.version>
-        <springdoc.version>2.4.0</springdoc.version>
-        <micrometer.version>1.12.5</micrometer.version>
+        <!-- Reproducible build -->
+        <project.build.outputTimestamp>2024-11-28T14:37:52Z</project.build.outputTimestamp>
 
-        <!-- Plugin versions -->
-        <maven-compiler.version>3.13.0</maven-compiler.version>
-        <maven-surefire.version>3.2.5</maven-surefire.version>
-        <maven-failsafe.version>3.2.5</maven-failsafe.version>
-        <jacoco.version>0.8.11</jacoco.version>
-        <checkstyle.version>3.3.1</checkstyle.version>
-        <spring-boot-maven.version>3.2.5</spring-boot-maven.version>
+        <!-- WebJars -->
+        <webjars-locator.version>1.1.1</webjars-locator.version>
+        <webjars-bootstrap.version>5.3.8</webjars-bootstrap.version>
+        <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
+
+        <!-- Build tools -->
+        <checkstyle.version>11.1.0</checkstyle.version>
+        <error-prone.version>2.42.0</error-prone.version>
+        <jacoco.version>0.8.13</jacoco.version>
+        <libsass.version>0.3.4</libsass.version>
+        <lifecycle-mapping>1.0.0</lifecycle-mapping>
+        <maven-checkstyle.version>3.6.0</maven-checkstyle.version>
+        <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
+        <nullaway.version>0.12.10</nullaway.version>
+        <spring-format.version>0.0.47</spring-format.version>
+
+        <!-- Your dependencies -->
+        <entityextraction.version>1.4</entityextraction.version>
+        <inception-reference.version>1.2.0</inception-reference.version>
+        <sbt-vite.version>0.12.0</sbt-vite.version>
+        <artemis.version>2.31.2</artemis.version>
+
     </properties>
 
-    <!-- ===================================================== -->
-    <!-- 3. DEPENDENCY MANAGEMENT                             -->
-    <!-- (defines versions; child modules inherit without     -->
-    <!--  specifying versions explicitly)                     -->
-    <!-- ===================================================== -->
-    <dependencyManagement>
-        <dependencies>
-
-            <!-- Spring Boot BOM — imports all Spring Boot managed versions -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-maven.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- Lombok -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <!-- MapStruct -->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <!-- Guava -->
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <!-- Jackson -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-
-            <!-- Logging -->
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-            <!-- Database -->
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${h2.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${postgresql.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <!-- Flyway -->
-            <dependency>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-core</artifactId>
-                <version>${flyway.version}</version>
-            </dependency>
-
-            <!-- Caffeine Cache -->
-            <dependency>
-                <groupId>com.github.ben-manes.caffeine</groupId>
-                <artifactId>caffeine</artifactId>
-                <version>${caffeine.version}</version>
-            </dependency>
-
-            <!-- SpringDoc OpenAPI -->
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-                <version>${springdoc.version}</version>
-            </dependency>
-
-            <!-- Micrometer -->
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-core</artifactId>
-                <version>${micrometer.version}</version>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
-
-    <!-- ===================================================== -->
-    <!-- DEPENDENCIES (shared across all child modules)       -->
-    <!-- ===================================================== -->
     <dependencies>
 
-        <!-- Spring Boot starters (version managed by parent BOM) -->
+        <!-- Your custom dependencies -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>ae.teletronics.nlp</groupId>
+            <artifactId>entityextraction</artifactId>
+            <version>${entityextraction.version}</version>
         </dependency>
 
-        <!-- Lombok (compile-time only) -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <groupId>africa.absa</groupId>
+            <artifactId>inception-reference</artifactId>
+            <version>${inception-reference.version}</version>
         </dependency>
 
-        <!-- Test -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>africa.shuwari.sbt</groupId>
+            <artifactId>sbt-vite</artifactId>
+            <version>${sbt-vite.version}</version>
         </dependency>
 
-        <!-- ================================================= -->
-        <!-- 4. DEPENDENCIES WITH EXCLUSIONS                  -->
-        <!-- (exclude transitive deps that conflict or are    -->
-        <!--  replaced by another dependency)                 -->
-        <!-- ================================================= -->
-
-        <!-- Exclude default Spring logging (Logback) to use Log4j2 instead -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>ch.qos.logback</groupId>
-                    <artifactId>logback-classic</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-to-slf4j</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-jakarta-service-extensions</artifactId>
+            <version>${artemis.version}</version>
         </dependency>
 
-        <!-- Exclude commons-logging pulled in by Spring core -->
+        <!-- WebJars -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-lite</artifactId>
+            <version>${webjars-locator.version}</version>
         </dependency>
 
-        <!-- Exclude Tomcat to use Undertow as embedded server -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${webjars-bootstrap.version}</version>
         </dependency>
 
-        <!-- Guava — exclude old FindBugs annotations that conflict with SpotBugs -->
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.code.findbugs</groupId>
-                    <artifactId>jsr305</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.errorprone</groupId>
-                    <artifactId>error_prone_annotations</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>${webjars-font-awesome.version}</version>
         </dependency>
 
     </dependencies>
-
-    <!-- ===================================================== -->
-    <!-- 5. PLUGIN MANAGEMENT                                 -->
-    <!-- ===================================================== -->
-    <build>
-        <pluginManagement>
-            <plugins>
-
-                <!-- Compiler plugin — enables annotation processors (Lombok + MapStruct) -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler.version}</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                                <version>${lombok.version}</version>
-                            </path>
-                            <path>
-                                <groupId>org.mapstruct</groupId>
-                                <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
-                    </configuration>
-                </plugin>
-
-                <!-- Surefire — unit tests -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire.version}</version>
-                    <configuration>
-                        <excludes>
-                            <exclude>**/*IT.java</exclude>
-                            <exclude>**/*IntegrationTest.java</exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-
-                <!-- Failsafe — integration tests -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven-failsafe.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>integration-test</goal>
-                                <goal>verify</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <includes>
-                            <include>**/*IT.java</include>
-                            <include>**/*IntegrationTest.java</include>
-                        </includes>
-                    </configuration>
-                </plugin>
-
-                <!-- JaCoCo — code coverage -->
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco.version}</version>
-                    <executions>
-                        <execution>
-                            <id>prepare-agent</id>
-                            <goals><goal>prepare-agent</goal></goals>
-                        </execution>
-                        <execution>
-                            <id>report</id>
-                            <phase>verify</phase>
-                            <goals><goal>report</goal></goals>
-                        </execution>
-                        <execution>
-                            <id>check</id>
-                            <goals><goal>check</goal></goals>
-                            <configuration>
-                                <rules>
-                                    <rule>
-                                        <element>BUNDLE</element>
-                                        <limits>
-                                            <limit>
-                                                <counter>LINE</counter>
-                                                <value>COVEREDRATIO</value>
-                                                <minimum>0.80</minimum>
-                                            </limit>
-                                        </limits>
-                                    </rule>
-                                </rules>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- Checkstyle -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${checkstyle.version}</version>
-                    <configuration>
-                        <configLocation>checkstyle.xml</configLocation>
-                        <failsOnError>true</failsOnError>
-                        <consoleOutput>true</consoleOutput>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>validate</phase>
-                            <goals><goal>check</goal></goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- Spring Boot Maven Plugin — packages executable JAR -->
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot-maven.version}</version>
-                    <executions>
-                        <execution>
-                            <goals><goal>repackage</goal></goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <excludes>
-                            <exclude>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                            </exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-
-            </plugins>
-        </pluginManagement>
-    </build>
 
 </project>
