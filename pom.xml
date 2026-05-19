@@ -6,15 +6,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>optional-dependency-demo</artifactId>
+    <artifactId>system-scope-demo</artifactId>
     <version>1.0.0</version>
 
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
-            <optional>true</optional>
+            <groupId>com.vendor</groupId>
+            <artifactId>legacy-lib</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/legacy-lib.jar</systemPath>
         </dependency>
     </dependencies>
 
