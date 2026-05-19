@@ -1,103 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.3.RELEASE</version>
-		<relativePath />
-	</parent>
-	<groupId>com.demo</groupId>
-	<artifactId>BankApplicationBackend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>BankApplicationBackend</name>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+    <modelVersion>4.0.0</modelVersion>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas</artifactId>
-		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.boot</groupId> -->
-		<!-- <artifactId>spring-boot-starter-thymeleaf</artifactId> -->
-		<!-- </dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-jwt</artifactId>
-			<version>1.0.7.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>com.auth0</groupId>
-			<artifactId>java-jwt</artifactId>
-			<version>3.4.0</version>
-		</dependency>
+    <groupId>com.example</groupId>
+    <artifactId>sbom-maven-test</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
+    <name>sbom-maven-test</name>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <properties>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.6.201602180812</version>
-				<executions>
-					<execution>
-						<id>prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.eluder.coveralls</groupId>
-				<artifactId>coveralls-maven-plugin</artifactId>
-				<version>4.3.0</version>
-			</plugin>
+        <!-- Java -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
-		</plugins>
-	</build>
+        <!-- Encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Reproducible build -->
+        <project.build.outputTimestamp>2024-11-28T14:37:52Z</project.build.outputTimestamp>
+
+        <!-- WebJars -->
+        <webjars-locator.version>1.1.1</webjars-locator.version>
+        <webjars-bootstrap.version>5.3.8</webjars-bootstrap.version>
+        <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
+
+        <!-- Build tools -->
+        <checkstyle.version>11.1.0</checkstyle.version>
+        <error-prone.version>2.42.0</error-prone.version>
+        <jacoco.version>0.8.13</jacoco.version>
+        <libsass.version>0.3.4</libsass.version>
+        <lifecycle-mapping>1.0.0</lifecycle-mapping>
+        <maven-checkstyle.version>3.6.0</maven-checkstyle.version>
+        <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
+        <nullaway.version>0.12.10</nullaway.version>
+        <spring-format.version>0.0.47</spring-format.version>
+
+        <!-- Your dependencies -->
+        <entityextraction.version>1.4</entityextraction.version>
+        <inception-reference.version>1.2.0</inception-reference.version>
+        <sbt-vite.version>0.12.0</sbt-vite.version>
+        <artemis.version>2.31.2</artemis.version>
+
+    </properties>
+
+    <dependencies>
+
+        <!-- Your custom dependencies -->
+        <dependency>
+            <groupId>ae.teletronics.nlp</groupId>
+            <artifactId>entityextraction</artifactId>
+            <version>${entityextraction.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>africa.absa</groupId>
+            <artifactId>inception-reference</artifactId>
+            <version>${inception-reference.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>africa.shuwari.sbt</groupId>
+            <artifactId>sbt-vite</artifactId>
+            <version>${sbt-vite.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>artemis-jakarta-service-extensions</artifactId>
+            <version>${artemis.version}</version>
+        </dependency>
+
+        <!-- WebJars -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-lite</artifactId>
+            <version>${webjars-locator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${webjars-bootstrap.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>${webjars-font-awesome.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
