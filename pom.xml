@@ -6,25 +6,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>profile-demo</artifactId>
+    <artifactId>webapp-demo</artifactId>
     <version>1.0.0</version>
+    <packaging>war</packaging>
 
-    <profiles>
-
-        <profile>
-            <id>dev</id>
-            <properties>
-                <environment>development</environment>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>prod</id>
-            <properties>
-                <environment>production</environment>
-            </properties>
-        </profile>
-
-    </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>
