@@ -94,6 +94,11 @@
             <artifactId>font-awesome</artifactId>
             <version>${webjars-font-awesome.version}</version>
         </dependency>
+        <dependency>
+             <groupId>org.apache.tomcat</groupId>
+             <artifactId>tomcat-catalina</artifactId>
+             <version>${tomcat.version}</version>
+        </dependency>
 
     </dependencies>
 
